@@ -2,13 +2,27 @@ package com.app.View;
 
 import com.app.Controller.EstudianteController;
 import com.app.Model.Estudiante;
-import java.util.Scanner;
 import java.util.List;
+import java.util.Scanner;
 
+/**
+ * La clase EstudianteView es la interfaz de usuario que interactúa con el 
+ * usuario para realizar operaciones sobre los estudiantes, como agregar, 
+ * listar, buscar, actualizar y eliminar estudiantes.
+ * 
+ * <p>La clase hace uso de la clase EstudianteController para ejecutar 
+ * las operaciones y mostrar los resultados al usuario mediante la consola.</p>
+ * 
+ * @version 1.0
+ */
 public class EstudianteView {
     private EstudianteController controller = new EstudianteController();
     private Scanner sc = new Scanner(System.in);
 
+    /**
+     * Inicia el menú interactivo de operaciones para gestionar estudiantes.
+     * Este método mantiene el flujo hasta que el usuario decida salir.
+     */
     public void iniciar() {
         while (true) {
             System.out.println("\n--- MENÚ DE ESTUDIANTES ---");
@@ -37,6 +51,11 @@ public class EstudianteView {
         }
     }
 
+    /**
+     * Permite al usuario agregar un nuevo estudiante a través de la consola.
+     * 
+     * @throws Exception Si ocurre un error al agregar el estudiante.
+     */
     private void agregar() throws Exception {
         System.out.print("ID: ");
         int id = sc.nextInt(); sc.nextLine();
@@ -52,6 +71,11 @@ public class EstudianteView {
         System.out.println("Estudiante agregado.");
     }
 
+    /**
+     * Muestra todos los estudiantes registrados en la base de datos.
+     * 
+     * @throws Exception Si ocurre un error al listar los estudiantes.
+     */
     private void listar() throws Exception {
         List<Estudiante> lista = controller.obtenerTodosLosEstudiantes();
         for (Estudiante e : lista) {
@@ -59,6 +83,11 @@ public class EstudianteView {
         }
     }
 
+    /**
+     * Permite al usuario buscar un estudiante por su ID.
+     * 
+     * @throws Exception Si ocurre un error al buscar el estudiante.
+     */
     private void buscar() throws Exception {
         System.out.print("ID: ");
         int id = sc.nextInt();
@@ -70,6 +99,11 @@ public class EstudianteView {
         }
     }
 
+    /**
+     * Permite al usuario actualizar los datos de un estudiante.
+     * 
+     * @throws Exception Si ocurre un error al actualizar el estudiante.
+     */
     private void actualizar() throws Exception {
         System.out.print("ID a actualizar: ");
         int id = sc.nextInt(); sc.nextLine();
@@ -83,6 +117,11 @@ public class EstudianteView {
         System.out.println("Estudiante actualizado.");
     }
 
+    /**
+     * Permite al usuario eliminar un estudiante por su ID.
+     * 
+     * @throws Exception Si ocurre un error al eliminar el estudiante.
+     */
     private void eliminar() throws Exception {
         System.out.print("ID a eliminar: ");
         int id = sc.nextInt();
